@@ -1,0 +1,83 @@
+[
+    {
+        "task_name": "Provide information about common medical conditions",
+        "steps": [
+            "Use MessageWorker to ask the user to specify the medical condition they are interested in learning about.",
+            "Use FaissRAGWorker to retrieve information from the company's internal documentation about the specified medical condition.",
+            "Use MessageWorker to present the retrieved information to the user, emphasizing that this is general information and advising consultation with healthcare professionals for personalized advice.",
+            "Use MessageWorker to ask the user if they would like information on another medical condition or have any follow-up questions."
+        ]
+    },
+    {
+        "task_name": "Assist with general symptom assessment guidance",
+        "steps": [
+            "Use MessageWorker to ask the user about the symptoms they are experiencing, including duration and severity.",
+            "Based on the user's input, use FaissRAGWorker to access internal documentation and provide general information about the symptoms, including possible causes and common conditions associated with them.",
+            "Use MessageWorker to convey the information to the user, emphasizing that the information is general and recommending consulting a healthcare professional for a personalized assessment.",
+            "Ask the user if they have any other symptoms or need more information on a specific condition using MessageWorker.",
+            "If the user has additional queries, use SearchWorker to find real-time information online and provide the latest guidance or updates related to their symptoms.",
+            "End the session by summarizing the key points discussed and reiterating the importance of seeking professional medical advice for accurate diagnosis and treatment."
+        ]
+    },
+    {
+        "task_name": "Provide preventive care and healthy lifestyle recommendations",
+        "steps": [
+            "Initiate conversation by asking the user about their current health goals or concerns related to preventive care and healthy lifestyle.",
+            "Provide general evidence-based preventive care tips and healthy lifestyle recommendations using the MessageWorker.",
+            "Ask the user if they would like more specific information or have additional questions regarding preventive care or lifestyle changes.",
+            "Emphasize the importance of consulting healthcare professionals for personalized medical advice and offer to assist with finding local healthcare resources if needed."
+        ]
+    },
+    {
+        "task_name": "Guide user to appropriate healthcare resources and information",
+        "steps": [
+            "Inquire about the user's specific healthcare questions or concerns.",
+            "Use FaissRAGWorker to search the company's internal documentation for relevant information and provide evidence-based resources to the user.",
+            "Ask if the user needs further information or has additional questions.",
+            "If the user requires more detailed or specific information, use SearchWorker to find real-time online results and share them with the user.",
+            "Emphasize the importance of consulting healthcare professionals for personalized advice and suggest scheduling a consultation if needed."
+        ]
+    },
+    {
+        "task_name": "Explain medical terms and concepts",
+        "steps": [
+            "Ask the user to specify the medical term or concept they need explained.",
+            "Use the SearchWorker to look up real-time online search results for the specified medical term or concept.",
+            "Deliver a concise and user-friendly explanation of the medical term or concept using MessageWorker.",
+            "Ask the user if they need further clarification or have additional terms they want explained.",
+            "If the user has more terms or concepts, repeat the process. If not, remind them of the importance of consulting healthcare professionals for personalized advice."
+        ]
+    },
+    {
+        "task_name": "Provide information on drugs and supplements",
+        "steps": [
+            "Inquire about the specific drug or supplement the user is interested in, including any particular details they are looking for (e.g., usage, side effects, interactions).",
+            "Use the FaissRAGWorker to retrieve detailed information about the drug or supplement from the company's internal documentation.",
+            "Present the retrieved information to the user using the MessageWorker.",
+            "Ask the user if they need further clarification or have additional questions regarding the drug or supplement.",
+            "If the user has more questions, use the SearchWorker to provide supplementary information from real-time online search results and deliver this via the MessageWorker."
+        ]
+    },
+    {
+        "task_name": "Explain purposes and results of common medical tests",
+        "steps": [
+            "Inquire about the specific medical test the user is interested in and gather any additional context or questions they may have.",
+            "Utilize the FaissRAGWorker to retrieve detailed information about the specified medical test from the company's internal documentation.",
+            "Present the user with an explanation of the purpose of the medical test, including what the test measures and its importance, using the MessageWorker.",
+            "Use the SearchWorker to find real-time information or recent studies related to the test if users have specific questions that require current data.",
+            "Summarize the possible results of the medical test, explaining what different outcomes might indicate regarding the user's health.",
+            "Emphasize the importance of consulting healthcare professionals for personalized medical advice and offer to redirect the user to additional healthcare resources if needed."
+        ]
+    },
+    {
+        "task_name": "Provide information on genetics and health",
+        "steps": [
+            "Greet the user and inquire about their specific question or topic of interest related to genetics and health.",
+            "Use the FaissRAGWorker to search the company's internal documentation for information related to the user's query on genetics and health.",
+            "Present the gathered information to the user using the MessageWorker, ensuring the information is clear and understandable.",
+            "Ask the user if they need further clarification or additional information on the topic.",
+            "If further information is needed, perform a real-time online search using the SearchWorker to find additional resources and present these to the user.",
+            "Emphasize the importance of consulting healthcare professionals for personalized medical advice and ask if there is anything else the user needs help with."
+        ]
+    }
+]

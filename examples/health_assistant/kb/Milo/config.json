@@ -1,0 +1,66 @@
+{
+    "role": "Mental Health companion ",
+    "user_objective": "**Objective:**  \nCompanion Chatbot is designed to be a supportive and empathetic buddy for patients, offering a safe space to share their thoughts and concerns. With a conversational style that mirrors a best friend’s warmth and understanding, the chatbot provides comforting, non-judgmental, and thoughtful responses. It aims to uplift users, help them navigate their challenges, and offer reassurance, making them feel heard and valued.",
+    "builder_objective": "The Companion chatbot offers empathetic and friendly conversations, providing emotional support while ensuring users feel heard and valued. It fosters a safe space for patients to share their thoughts but emphasizes that it is not a replacement for professional therapy or medical advice.",
+    "domain": "Mentall wellness and Healthcare",
+    "intro": "The Companion chatbot is your friendly and supportive buddy, here to listen, uplift, and offer thoughtful conversations. Whether you need a comforting chat, a space to vent, or just someone to brighten your day, it’s always ready to help. While it provides emotional support and companionship, it is not a substitute for professional therapy or medical advice.",
+    "task_docs": [
+        {
+            "source": "https://www.mind.org.uk/",
+            "desc": "Mental Health website with self help guides",
+            "num": 2
+        },
+        {
+            "source": "https://www.verywellmind.com/",
+            "desc": "Evidence-based articles on mental health, coping strategies, and therapy.",
+            "num": 2
+        },
+        {
+            "source": "https://psychcentral.com/",
+            "desc": "Covers various mental health topics, expert insights, and self-help resources.",
+            "num": 2
+        },
+        {
+            "source": "https://www.calm.com/",
+            "desc": "Meditation, relaxation, and sleep resources for mental well-being.",
+            "num": 2
+        }
+    ],
+    "rag_docs": [
+        {
+            "source": "https://medlineplus.gov/",
+            "desc": "MedlinePlus is a service of the National Library of Medicine providing reliable, up-to-date health information",
+            "num": 2
+        },
+        {
+            "source": "https://www.cdc.gov/",
+            "desc": "Centers for Disease Control and Prevention provides health information and disease prevention guidelines",
+            "num": 2
+        }
+    ],
+    "tasks": [],
+    "tools": [],
+    "workers": [
+        {
+            "id": "26bb6634-3bee-417d-ad72-23269ac17bc3",
+            "name": "MessageWorker",
+            "path": "message_worker.py"
+        },
+        {
+            "id": "9c12af81-04b3-443e-be04-a3222124b902",
+            "name": "SearchWorker",
+            "path": "search_worker.py"
+        },
+        {
+            "id": "f9ddf676-b822-4439-b9a2-42026c7634a3",
+            "name": "FaissRAGWorker",
+            "path": "faiss_rag_worker.py"
+        },
+        {
+            "id": "b06c2b28-12c2-41fe-9838-e93b230e42e8",
+            "name": "DefaultWorker",
+            "path": "default_worker.py"
+        }
+    ],
+    "name": "Milo"
+}

@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Train Bot - Arklex AI</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="static/css/style.css">
+    <link rel="stylesheet" href="static/css/train-bot-fixes.css">
+</head>
+<body>
+    <div class="navbar">
+        <div class="logo">
+            <i class="fas fa-robot"></i>
+            <a href="index.html"><span>Arklex AI</span></a>
+        </div>
+        <div class="menu">
+            <a href="index.html#about">About</a>
+            <a href="index.html#features">Features</a>
+            <a href="index.html#get-started">Get Started</a>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="page-header">
+            <h1>Train Your Bot</h1>
+            <p>Select a bot to train and configure its task graph</p>
+        </div>
+
+        <div class="train-section">
+            <div class="bot-selector-container">
+                <div class="selector-content">
+                    <div class="form-group">
+                        <label for="bot-selector">Select a Bot</label>
+                        <div class="select-wrapper">
+                            <select id="bot-selector" name="bot-selector" required>
+                                <option value="" disabled selected>Choose a bot...</option>
+                                <!-- Bot options will be loaded dynamically -->
+                            </select>
+                            <i class="fas fa-chevron-down select-icon"></i>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="task-selector">Training Task</label>
+                        <div class="select-wrapper">
+                            <select id="task-selector" name="task-selector" required>
+                                <option value="all" selected>All Tasks (Generate + Initialize)</option>
+                                <option value="gen_taskgraph">Generate Task Graph Only</option>
+                                <option value="init">Initialize Workers Only</option>
+                            </select>
+                            <i class="fas fa-chevron-down select-icon"></i>
+                        </div>
+                    </div>
+                    
+                    <div class="training-description">
+                        <h4><i class="fas fa-info-circle"></i> Training Information</h4>
+                        <p>Training your bot will prepare it to handle user conversations by:</p>
+                        <ul>
+                            <li>Building a task graph based on your configuration</li>
+                            <li>Setting up knowledge retrieval systems</li>
+                            <li>Initializing all required workers</li>
+                        </ul>
+                        <p>The process may take several minutes depending on the complexity of your bot.</p>
+                    </div>
+                </div>
+                
+                <div class="buttons-container">
+                    <button id="train-btn" class="primary-btn train-btn">
+                        <i class="fas fa-cogs"></i> Train Bot
+                    </button>
+                    <button id="refresh-bots-btn" class="secondary-btn refresh-btn">
+                        <i class="fas fa-sync-alt"></i> Refresh Bot List
+                    </button>
+                </div>
+            </div>
+
+            <div class="terminal-container">
+                <div class="terminal-header">
+                    <span class="terminal-title">Training Console</span>
+                    <div class="terminal-controls">
+                        <button id="clear-terminal-btn" class="terminal-btn" title="Clear Terminal">
+                            <i class="fas fa-trash-alt"></i>
+                        </button>
+                        <button id="copy-terminal-btn" class="terminal-btn" title="Copy to Clipboard">
+                            <i class="fas fa-copy"></i>
+                        </button>
+                    </div>
+                </div>
+                <div id="terminal" class="terminal-output">
+                    <div class="terminal-welcome">
+                        <div class="terminal-line">
+                            <span class="time">[System]</span>
+                            <span class="content terminal-green">Arklex AI Training Console</span>
+                        </div>
+                        <div class="terminal-line">
+                            <span class="time">[System]</span>
+                            <span class="content">Select a bot and click "Train Bot" to begin the training process.</span>
+                        </div>
+                        <div class="terminal-line">
+                            <span class="time">[System]</span>
+                            <span class="content">Training logs will appear here.</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="training-info">
+            <h3><i class="fas fa-info-circle"></i> About Bot Training</h3>
+            <p>Training a bot involves two main steps:</p>
+            <ol>
+                <li><strong>Generate Task Graph</strong> - Creates a conversational flow for your bot based on its configuration</li>
+                <li><strong>Initialize Workers</strong> - Sets up knowledge retrieval systems and prepares the bot's components</li>
+            </ol>
+            <p>The training process may take several minutes depending on the complexity of your bot and the amount of knowledge sources.</p>
+            <a href="create-bot.html" class="text-link"><i class="fas fa-arrow-left"></i> Back to Create Bot</a>
+        </div>
+    </div>
+
+    <div id="notification" class="notification">
+        <div class="notification-content">
+            <i class="notification-icon"></i>
+            <span class="notification-message"></span>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">
+                <i class="fas fa-robot"></i>
+                <span>Arklex AI</span>
+            </div>
+            <div class="footer-links">
+                <a href="#">Terms</a>
+                <a href="#">Privacy</a>
+                <a href="#">Documentation</a>
+            </div>
+            <div class="footer-social">
+                <a href="#"><i class="fab fa-github"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-linkedin"></i></a>
+            </div>
+        </div>
+        <div class="footer-copyright">
+            &copy; 2025 Arklex AI. All rights reserved.
+        </div>
+    </footer>
+
+    <script src="static/js/train-bot.js"></script>
+</body>
+</html> 

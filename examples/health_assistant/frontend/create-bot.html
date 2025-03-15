@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Bot - Arklex AI</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="static/css/style.css">
+</head>
+<body>
+    <div class="navbar">
+        <div class="logo">
+            <i class="fas fa-robot"></i>
+            <a href="index.html"><span>Arklex AI</span></a>
+        </div>
+        <div class="menu">
+            <a href="index.html#about">About</a>
+            <a href="index.html#features">Features</a>
+            <a href="index.html#get-started">Get Started</a>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="page-header">
+            <h1>Create a New Bot</h1>
+            <p>Configure your AI assistant by filling in the details below</p>
+        </div>
+
+        <form id="create-bot-form" class="bot-form">
+            <div class="form-section">
+                <h2>Basic Information</h2>
+                <div class="form-group">
+                    <label for="bot-name">Bot Name*</label>
+                    <input type="text" id="bot-name" name="bot-name" placeholder="Enter a name for your bot" required>
+                </div>
+                <div class="form-group">
+                    <label for="role">Role*</label>
+                    <input type="text" id="role" name="role" placeholder="e.g. healthcare assistant" value="healthcare assistant" required>
+                </div>
+                <div class="form-group">
+                    <label for="domain">Domain*</label>
+                    <input type="text" id="domain" name="domain" placeholder="e.g. healthcare and medicine" value="healthcare and medicine" required>
+                </div>
+            </div>
+
+            <div class="form-section">
+                <h2>Objectives</h2>
+                <div class="form-group">
+                    <label for="user-objective">User Objective*</label>
+                    <textarea id="user-objective" name="user-objective" rows="4" placeholder="Describe what users can accomplish with this bot" required>The healthcare assistant helps users understand medical conditions, assess symptoms, find preventive care information, and navigate healthcare resources. It provides evidence-based health information while emphasizing the importance of consulting healthcare professionals for personalized medical advice.</textarea>
+                </div>
+                <div class="form-group">
+                    <label for="builder-objective">Builder Objective*</label>
+                    <textarea id="builder-objective" name="builder-objective" rows="4" placeholder="Describe what the bot needs to accomplish" required>The healthcare assistant collects relevant health information to provide accurate guidance and always includes appropriate medical disclaimers, emphasizing that it is not a substitute for professional medical care.</textarea>
+                </div>
+            </div>
+
+            <div class="form-section">
+                <h2>Bot Introduction</h2>
+                <div class="form-group">
+                    <label for="intro">Introduction Message*</label>
+                    <textarea id="intro" name="intro" rows="6" placeholder="This is the message users will see when they first interact with your bot" required>This healthcare assistant provides evidence-based information on common medical conditions, symptoms, treatments, preventive measures, and healthy lifestyle recommendations. It can help users understand general health concepts, interpret medical terminology, and determine when to seek professional medical care. The assistant emphasizes that it provides general information only and is not a replacement for consultation with qualified healthcare providers who can provide personalized medical advice based on individual circumstances.</textarea>
+                </div>
+            </div>
+
+            <div class="form-section">
+                <h2>Knowledge Sources</h2>
+                <div class="form-tabs">
+                    <button type="button" class="tab-btn active" data-tab="task-docs">Task Documents</button>
+                    <button type="button" class="tab-btn" data-tab="rag-docs">RAG Documents</button>
+                </div>
+
+                <div id="task-docs" class="tab-content active">
+                    <div class="docs-container" id="task-docs-container">
+                        <div class="doc-item">
+                            <div class="form-group">
+                                <label>Source URL</label>
+                                <input type="url" class="doc-source" name="task-doc-source[]" placeholder="https://example.com" value="https://medlineplus.gov/">
+                            </div>
+                            <div class="form-group">
+                                <label>Description</label>
+                                <input type="text" class="doc-desc" name="task-doc-desc[]" placeholder="Description of the source" value="MedlinePlus is a service of the National Library of Medicine providing reliable, up-to-date health information">
+                            </div>
+                            <div class="form-group">
+                                <label>Number of Documents</label>
+                                <input type="number" class="doc-num" name="task-doc-num[]" min="1" value="2">
+                            </div>
+                            <button type="button" class="remove-doc-btn"><i class="fas fa-trash"></i></button>
+                        </div>
+                        <div class="doc-item">
+                            <div class="form-group">
+                                <label>Source URL</label>
+                                <input type="url" class="doc-source" name="task-doc-source[]" placeholder="https://example.com" value="https://www.cdc.gov/">
+                            </div>
+                            <div class="form-group">
+                                <label>Description</label>
+                                <input type="text" class="doc-desc" name="task-doc-desc[]" placeholder="Description of the source" value="Centers for Disease Control and Prevention provides health information and disease prevention guidelines">
+                            </div>
+                            <div class="form-group">
+                                <label>Number of Documents</label>
+                                <input type="number" class="doc-num" name="task-doc-num[]" min="1" value="2">
+                            </div>
+                            <button type="button" class="remove-doc-btn"><i class="fas fa-trash"></i></button>
+                        </div>
+                    </div>
+                    <button type="button" id="add-task-doc" class="add-doc-btn"><i class="fas fa-plus"></i> Add Document Source</button>
+                </div>
+
+                <div id="rag-docs" class="tab-content">
+                    <div class="docs-container" id="rag-docs-container">
+                        <div class="doc-item">
+                            <div class="form-group">
+                                <label>Source URL</label>
+                                <input type="url" class="doc-source" name="rag-doc-source[]" placeholder="https://example.com" value="https://medlineplus.gov/">
+                            </div>
+                            <div class="form-group">
+                                <label>Description</label>
+                                <input type="text" class="doc-desc" name="rag-doc-desc[]" placeholder="Description of the source" value="MedlinePlus is a service of the National Library of Medicine providing reliable, up-to-date health information">
+                            </div>
+                            <div class="form-group">
+                                <label>Number of Documents</label>
+                                <input type="number" class="doc-num" name="rag-doc-num[]" min="1" value="2">
+                            </div>
+                            <button type="button" class="remove-doc-btn"><i class="fas fa-trash"></i></button>
+                        </div>
+                        <div class="doc-item">
+                            <div class="form-group">
+                                <label>Source URL</label>
+                                <input type="url" class="doc-source" name="rag-doc-source[]" placeholder="https://example.com" value="https://www.cdc.gov/">
+                            </div>
+                            <div class="form-group">
+                                <label>Description</label>
+                                <input type="text" class="doc-desc" name="rag-doc-desc[]" placeholder="Description of the source" value="Centers for Disease Control and Prevention provides health information and disease prevention guidelines">
+                            </div>
+                            <div class="form-group">
+                                <label>Number of Documents</label>
+                                <input type="number" class="doc-num" name="rag-doc-num[]" min="1" value="2">
+                            </div>
+                            <button type="button" class="remove-doc-btn"><i class="fas fa-trash"></i></button>
+                        </div>
+                    </div>
+                    <button type="button" id="add-rag-doc" class="add-doc-btn"><i class="fas fa-plus"></i> Add Document Source</button>
+                </div>
+            </div>
+
+            <div class="form-section">
+                <h2>Workers Configuration</h2>
+                <div class="workers-container" id="workers-container">
+                    <div class="worker-item">
+                        <div class="form-group">
+                            <label>Worker Name</label>
+                            <input type="text" class="worker-name" name="worker-name[]" value="MessageWorker" readonly>
+                        </div>
+                        <div class="form-group">
+                            <label>Worker Path</label>
+                            <input type="text" class="worker-path" name="worker-path[]" value="message_worker.py" readonly>
+                        </div>
+                        <div class="form-group worker-id-group">
+                            <label>Worker ID</label>
+                            <input type="text" class="worker-id" name="worker-id[]" value="26bb6634-3bee-417d-ad72-23269ac17bc3" readonly>
+                        </div>
+                    </div>
+                    <div class="worker-item">
+                        <div class="form-group">
+                            <label>Worker Name</label>
+                            <input type="text" class="worker-name" name="worker-name[]" value="SearchWorker" readonly>
+                        </div>
+                        <div class="form-group">
+                            <label>Worker Path</label>
+                            <input type="text" class="worker-path" name="worker-path[]" value="search_worker.py" readonly>
+                        </div>
+                        <div class="form-group worker-id-group">
+                            <label>Worker ID</label>
+                            <input type="text" class="worker-id" name="worker-id[]" value="9c12af81-04b3-443e-be04-a3222124b902" readonly>
+                        </div>
+                    </div>
+                    <div class="worker-item">
+                        <div class="form-group">
+                            <label>Worker Name</label>
+                            <input type="text" class="worker-name" name="worker-name[]" value="FaissRAGWorker" readonly>
+                        </div>
+                        <div class="form-group">
+                            <label>Worker Path</label>
+                            <input type="text" class="worker-path" name="worker-path[]" value="faiss_rag_worker.py" readonly>
+                        </div>
+                        <div class="form-group worker-id-group">
+                            <label>Worker ID</label>
+                            <input type="text" class="worker-id" name="worker-id[]" value="f9ddf676-b822-4439-b9a2-42026c7634a3" readonly>
+                        </div>
+                    </div>
+                    <div class="worker-item">
+                        <div class="form-group">
+                            <label>Worker Name</label>
+                            <input type="text" class="worker-name" name="worker-name[]" value="DefaultWorker" readonly>
+                        </div>
+                        <div class="form-group">
+                            <label>Worker Path</label>
+                            <input type="text" class="worker-path" name="worker-path[]" value="default_worker.py" readonly>
+                        </div>
+                        <div class="form-group worker-id-group">
+                            <label>Worker ID</label>
+                            <input type="text" class="worker-id" name="worker-id[]" value="b06c2b28-12c2-41fe-9838-e93b230e42e8" readonly>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-section form-actions">
+                <button type="button" id="save-btn" class="save-btn">Create Bot</button>
+                <button type="button" id="reset-btn" class="reset-btn">Reset Form</button>
+                <a href="train-bot.html" class="secondary-btn" style="display: inline-flex; align-items: center; text-decoration: none; padding: 1rem 2rem; background-color: var(--primary-light); color: var(--white); border: none; position: relative;" title="Only useful after creating bots">
+                    <i class="fas fa-cogs" style="margin-right: 0.5rem;"></i> Go to Train Bot
+                    <span class="train-bot-tooltip" style="visibility: hidden; position: absolute; bottom: -40px; left: 50%; transform: translateX(-50%); background-color: var(--text-color); color: var(--white); padding: 5px 10px; border-radius: 5px; font-size: 0.8rem; white-space: nowrap; z-index: 10; transition: visibility 0.2s;">Only useful if you've created bots in the past</span>
+                </a>
+                <style>
+                    a:hover .train-bot-tooltip {
+                        visibility: visible !important;
+                    }
+                </style>
+            </div>
+        </form>
+    </div>
+
+    <div id="notification" class="notification">
+        <div class="notification-content">
+            <i class="notification-icon"></i>
+            <span class="notification-message"></span>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">
+                <i class="fas fa-robot"></i>
+                <span>Arklex AI</span>
+            </div>
+            <div class="footer-links">
+                <a href="#">Terms</a>
+                <a href="#">Privacy</a>
+                <a href="#">Documentation</a>
+            </div>
+            <div class="footer-social">
+                <a href="https://github.com/arklexai/Agent-First-Organization"><i class="fab fa-github"></i></a>
+                <a href="https://x.com/ArklexAI/"><i class="fab fa-twitter"></i></a>
+                <a href="https://www.linkedin.com/company/arklex/posts/?feedView=all"><i class="fab fa-linkedin"></i></a>
+            </div>
+        </div>
+        <div class="footer-copyright">
+            &copy; 2025 ArlLex AI. All rights reserved.
+        </div>
+    </footer>
+
+    <script src="static/js/create-bot.js"></script>
+</body>
+</html> 
