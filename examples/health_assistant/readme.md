@@ -46,7 +46,7 @@ A comprehensive web app for creating, training, and deploying sophisticated AI c
 
 ```bash
 git clone git@github.com:amtulifra/Agent-First-Organization.git
-cd assignment1
+cd Agent-First-Organization/examples/health_assistant
 ```
 
 2. Create a virtual environment and install dependencies:
@@ -179,6 +179,6 @@ The task graph system enables:
 
 ## Acknowledgements
 
-- ArkLex framework for sophisticated chatbot orchestration
+- [Arklex AI] (https://www.arklex.ai/) for sophisticated chatbot orchestration
 - WebSockets for seamless real-time communication
 - Font Awesome for professional iconography
